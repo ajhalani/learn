@@ -64,15 +64,17 @@ void insertionSort(int nums[], int size)
 
 void selectionSort(int nums[], int size)
 {
-	for(int i=0; i<size; ++i) {
+	for(int i=0; i<size-1; ++i) {
 		int leastIndex=i;
-		for(int j=i; j<size; ++j) {
+		for(int j=i+1; j<size; ++j) {
 			if(nums[j]<nums[leastIndex])
 				leastIndex=j;
 		}
-		int temp=nums[leastIndex];
-		nums[leastIndex]=nums[i];
-		nums[i]=temp;
+		if(leastIndex != i) {
+			int temp=nums[leastIndex];
+			nums[leastIndex]=nums[i];
+			nums[i]=temp;
+		}
 	}
 }
 
