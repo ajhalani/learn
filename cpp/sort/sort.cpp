@@ -62,6 +62,20 @@ void insertionSort(int nums[], int size)
 	}
 }
 
+void selectionSort(int nums[], int size)
+{
+	for(int i=0; i<size; ++i) {
+		int leastIndex=i;
+		for(int j=i; j<size; ++j) {
+			if(nums[j]<nums[leastIndex])
+				leastIndex=j;
+		}
+		int temp=nums[leastIndex];
+		nums[leastIndex]=nums[i];
+		nums[i]=temp;
+	}
+}
+
 int main()
 {
 	srand(time(NULL));
@@ -72,7 +86,8 @@ int main()
 	}
 	printArray(nums);
 	//mergeSort(nums, 0, arraySize, temp);
-	insertionSort(nums, arraySize);
+	//insertionSort(nums, arraySize);
+	selectionSort(nums, arraySize);
 	printArray(nums);
 	return 0;
 }
