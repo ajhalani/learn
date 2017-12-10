@@ -23,8 +23,8 @@ void merge(int nums[], int start, int middle, int end, int temp[])
 	int rightIndex=middle;
 	for(int i=start; i<end; ++i) {
 		if(rightIndex>=end || 
-        (leftIndex<middle && (nums[leftIndex] <= nums[rightIndex]))
-      ){
+				(leftIndex<middle && (nums[leftIndex] <= nums[rightIndex]))
+			){
 			temp[i]=nums[leftIndex];
 			leftIndex++;
 		}
@@ -45,8 +45,8 @@ void mergeSort(int nums[], int start, int size, int temp[])
 	int middle = start + size/2;
 	mergeSort(nums, start, middle-start, temp);				//sort left
 	mergeSort(nums, middle, start+size-middle, temp);	//sort right
-  //merge two sorted sub-arrays
-  merge(nums, start, middle, start+size, temp);
+	//merge two sorted sub-arrays
+	merge(nums, start, middle, start+size, temp);
 }
 
 int main()
