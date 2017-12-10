@@ -1,0 +1,40 @@
+* Evaluating arithmetic expressions - When evaluating expressions, subexpressions/operands 
+  are converted to be of same type. Compiler finds highest priority operand and converts other
+  operand to match. In increasing priority - int < unsigned int < long < unsigned long
+  < long long < unsigned long long < float < double < long double
+* Drawbacks of defining constants in cpp - forward decleration in headerfile 
+	- these constants are now considered compile-time constants only within the file 
+		they are actually defined in (constants.cpp), not anywhere else they are used. 
+		This means that outside of constants.cpp, they can’t be used anywhere that requires 
+		a compile-time constant. Second, the compiler may not be able to optimize these as much.
+
+------
+C++ 11 
+------
+
+* Compile time vs runtime constants -  C++11 introduced new keyword constexpr, 
+which ensures that the constant must be a compile-time constant:
+* Static local variables are thread safe
+* auto keyword - When initializing a variable, the auto keyword can be used in place 
+  of the variable type to tell the compiler to infer the variable’s type from the 
+  initializer’s type. This is called type inference. 
+  Only works when initializing a variable upon creation
+* Trailing comma "," are allowed
+* Added support for enum class (scoped enumerations) - need static_cast<int> for int conversion
+* Added support for type alias - improved typedefs
+* Initializer Lists - initialize a std::vector or std::map (or a custom container) 
+	to a set of values - std::vector<int> v { 1,2,3,4,5 };
+* Uniform initialization - allow braces for all initialization e.g. string s{"abc"};
+
+------
+C++ 14 
+------
+
+* auto keyword - was extended to be able to auto-deduce a function’s return type. 
+  While this may seem neat, we recommend that this syntax be avoided for functions. 
+  The return type of a function is of great use in helping to document for the caller 
+  what a function is expected to return. When a specific type isn’t specified, 
+  the caller may misinterpret what type the function will return, 
+  which can lead to inadvertent errors.
+
+
