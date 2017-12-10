@@ -49,6 +49,19 @@ void mergeSort(int nums[], int start, int size, int temp[])
 	merge(nums, start, middle, start+size, temp);
 }
 
+void insertionSort(int nums[], int size) 
+{
+	for(int i=1; i<size; ++i) {
+		int j=i;
+		int x=nums[i];
+		while(j>0 && x<nums[j-1]) {
+			nums[j]=nums[j-1];
+			j--;
+		}
+		nums[j]=x;
+	}
+}
+
 int main()
 {
 	srand(time(NULL));
@@ -58,7 +71,8 @@ int main()
 		nums[i]= rand()%100;
 	}
 	printArray(nums);
-	mergeSort(nums, 0, arraySize, temp);
+	//mergeSort(nums, 0, arraySize, temp);
+	insertionSort(nums, arraySize);
 	printArray(nums);
 	return 0;
 }
